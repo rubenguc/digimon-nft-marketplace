@@ -11,11 +11,15 @@ const Shop = () => {
       tokenContract: PACK_ADDRESS,
     });
 
+  const isLoading = isLoadingMarketplace || isLoadingDirectListings;
+
+
+
   return (
     <div>
       <h1 className="font-poppins mb-1 text-4xl">Shop packs</h1>
 
-      {isLoadingDirectListings ? (
+      {isLoading ? (
         <>Loading...</>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

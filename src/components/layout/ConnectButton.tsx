@@ -34,7 +34,7 @@ const ConnectButton = () => {
         >
           <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <Menu.Item>
-              {({ active }) => (
+              {() => (
                 <button
                   onClick={disconnect}
                 >

@@ -1,10 +1,16 @@
 import { FC } from "react";
 import { Modal } from "@/components/common";
-import { PackRewards } from "@thirdweb-dev/sdk/dist/declarations/src/evm/schema";
 import PackReward from "./PackReward";
+import { BigNumber } from "ethers";
+
+export type erc1155Rewards = {
+  tokenId: (string | number | bigint | BigNumber) & (string | number | bigint | BigNumber | undefined);
+  contractAddress: string;
+  quantityPerReward: (string | number | bigint | BigNumber) & (string | number | bigint | BigNumber | undefined);
+}[] | undefined;
 
 interface PackRewardsModalProps {
-  packRewards: PackRewards[] | undefined;
+  packRewards: erc1155Rewards | undefined;
   isOpen: boolean;
   closeModal: () => void;
 }

@@ -1,10 +1,26 @@
 import { useState } from 'react';
 import { PACK_ADDRESS } from '@/constants';
 import { useAddress, useContract, useOwnedNFTs } from '@thirdweb-dev/react';
-import { PackRewards } from '@thirdweb-dev/sdk/dist/declarations/src/evm/schema';
 import Pack from './Pack';
 import { useModal } from '@/hooks';
 import PackRewardsModal from './PackRewardsModal';
+import { BigNumber } from 'ethers';
+
+export type PackRewards = {
+  erc20Rewards?: {
+    contractAddress: string;
+    quantityPerReward: string | number;
+  }[] | undefined;
+  erc721Rewards?: {
+    tokenId: (string | number | bigint | BigNumber) & (string | number | bigint | BigNumber | undefined);
+    contractAddress: string;
+  }[] | undefined;
+  erc1155Rewards?: {
+    tokenId: (string | number | bigint | BigNumber) & (string | number | bigint | BigNumber | undefined);
+    contractAddress: string;
+    quantityPerReward: (string | number | bigint | BigNumber) & (string | number | bigint | BigNumber | undefined);
+  }[] | undefined;
+} | undefined
 
 const PackList = () => {
   const address = useAddress();
@@ -20,6 +36,9 @@ const PackList = () => {
 
   const openPack = async (packId: string) => {
     const cardRewards = await contract?.open(parseInt(packId), 1);
+
+    cardRewards
+
     setOpenPackRewards(cardRewards);
     openModal();
   }
@@ -46,7 +65,7 @@ const PackList = () => {
       <PackRewardsModal
         isOpen={isModalOpen}
         closeModal={handleCloseModal}
-        packRewards={openPackRewards?.erc1155Rewards || []}
+        packRewards={openPackRewards?.erc1155Rewards}
       />
     </>
   )

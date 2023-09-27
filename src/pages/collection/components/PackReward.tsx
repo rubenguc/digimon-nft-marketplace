@@ -8,14 +8,14 @@ interface PackRewardProps {
     tokenId: string | number | bigint | BigNumber;
     contractAddress: string;
     quantityPerReward: string | number | bigint | BigNumber;
-  };
+  } | undefined;
 }
 
 const PackReward: FC<PackRewardProps> = ({
   reward
 }) => {
   const { contract } = useContract(CARD_ADDRESS, "edition");
-  const { data } = useNFT(contract, reward.tokenId);
+  const { data } = useNFT(contract, reward?.tokenId);
 
 
   return (

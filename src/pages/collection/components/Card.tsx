@@ -3,6 +3,7 @@ import { NFT, ThirdwebNftMedia } from "@thirdweb-dev/react"
 
 interface CardProps {
   nft: NFT
+  setSelectedNFT: (nft: NFT) => void
 }
 
 interface Metadata {
@@ -11,7 +12,8 @@ interface Metadata {
 }
 
 const Card: FC<CardProps> = ({
-  nft
+  nft,
+  setSelectedNFT
 }) => {
 
   const atributes = nft?.metadata?.attributes as unknown as Metadata[]
@@ -30,13 +32,16 @@ const Card: FC<CardProps> = ({
         <div className="flex flex-col gap-1">
           {
             atributes?.map((attribute) => (
-              <p className="font-normal text-gray-700 dark:text-gray-300">
+              <p key={attribute.trait_type} className="font-normal text-gray-700 dark:text-gray-300">
                 {attribute.trait_type}: {attribute.value}
               </p>
             ))
           }
 
         </div>
+        <button
+          onClick={() => setSelectedNFT(nft)}
+        >Sell Card</button>
       </div>
     </div>
   )

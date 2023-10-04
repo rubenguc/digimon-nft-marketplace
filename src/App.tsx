@@ -1,6 +1,6 @@
 import { Outlet, RootRoute, Route, Router, RouterProvider } from "@tanstack/react-router"
 import { Footer, Header } from "@/components/layout"
-import { Collection, Home, Shop } from "@/pages"
+import { Collection, Home, Marketplace, Shop } from "@/pages"
 
 const rootRoute = new RootRoute({
   component: () => (
@@ -34,10 +34,17 @@ const collectionRoute = new Route({
   component: Collection
 })
 
+const marketplaceRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: "/marketplace",
+  component: Marketplace
+})
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   shopRoute,
-  collectionRoute
+  collectionRoute,
+  marketplaceRoute
 ])
 
 const router = new Router({

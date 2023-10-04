@@ -2,16 +2,6 @@ import { Link } from "@tanstack/react-router"
 import ConnectButton from "./ConnectButton"
 import digiviceLogo from "/favicon.svg"
 
-// const ROUTES = [
-//   {
-//     name: 'shop',
-//     href: '/shop'
-//   },
-//   {
-//     name: 'collection',
-//     href: '/collection'
-//   }
-// ]
 
 const Header = () => {
   return (
@@ -22,8 +12,9 @@ const Header = () => {
       </Link>
 
       <div className="flex gap-3">
-        <Link to={"/shop"} >shop</Link>
-        <Link to={"/collection"} >collection</Link>
+        <Link to="/shop">shop</Link>
+        <Link to="/collection">collection</Link>
+        <Link to="/marketplace">marketplace</Link>
       </div>
 
       <ConnectButton />

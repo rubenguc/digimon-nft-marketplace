@@ -1,5 +1,6 @@
 import { FC, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { RxCross2 } from "react-icons/rx"
 
 interface ModalProps {
   isOpen: boolean
@@ -16,7 +17,7 @@ const Modal: FC<ModalProps> = ({
 }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={closeModal}>
+      <Dialog as="div" className="relative z-10" onClose={() => null}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -41,6 +42,9 @@ const Modal: FC<ModalProps> = ({
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <div className='flex justify-end'>
+                  <RxCross2 className="w-6 h-6 text-black" onClick={closeModal} />
+                </div>
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"

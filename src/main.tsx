@@ -10,6 +10,6 @@ createRoot(document.getElementById('root')!).render(
     activeChain={"mumbai"}
   >
     <App />
-  </ThirdwebProvider>
+  </ThirdwebProvider> as any
   ,
 )

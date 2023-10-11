@@ -14,7 +14,7 @@ const TABS = [{
 const Collection = () => {
   return (
     <>
-      <h1 className="font-poppins mb-1 text-4xl">Collection</h1>
+      <h1 className="font-chakrapetch mb-1 text-4xl">Collection</h1>
 
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl p-1">

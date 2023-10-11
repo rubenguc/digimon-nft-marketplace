@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+        chakrapetch: ["Chakra Petch", "sans-serif"],
         inter: ["Inter", "sans-serif"],
       },
     },

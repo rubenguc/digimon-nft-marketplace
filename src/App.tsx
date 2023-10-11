@@ -4,15 +4,15 @@ import { Collection, Home, Marketplace, Shop } from "@/pages"
 
 const rootRoute = new RootRoute({
   component: () => (
-    <>
-      <>
-        <Header />
-        <main className="p-4 max-w-5xl mx-auto">
-          <Outlet />
-        </main>
-        <Footer />
-      </>
-    </>
+    <div className="flex flex-1 flex-col h-full">
+
+      <Header />
+      <main className="p-4 max-w-5xl mx-auto flex-1 w-full">
+        <Outlet />
+      </main>
+      <Footer />
+
+    </div>
   )
 })
 

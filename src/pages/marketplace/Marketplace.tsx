@@ -22,7 +22,7 @@ const Marketplace = () => {
 
   return (
     <div>
-      <h1 className="font-poppins mb-1 text-4xl">Marketplace</h1>
+      <h1 className="font-chakrapetch mb-1 text-4xl">Marketplace</h1>
 
       {isLoading ? (
         <>Loading...</>
@@ -31,6 +31,7 @@ const Marketplace = () => {
           {
             directListings?.map(
               (listing) => <NFTCard
+                key={listing.id}
                 tokenID={listing.asset.id}
                 listingID={listing.id}
               />

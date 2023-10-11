@@ -17,7 +17,7 @@ const Shop = () => {
 
   return (
     <div>
-      <h1 className="font-poppins mb-1 text-4xl">Shop packs</h1>
+      <h1 className="font-chakrapetch mb-1 text-4xl">Shop packs</h1>
 
       {isLoading ? (
         <>Loading...</>
